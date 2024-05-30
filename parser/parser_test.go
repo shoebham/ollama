@@ -10,6 +10,7 @@ import (
 	"unicode/utf16"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestParseFileFile(t *testing.T) {
@@ -525,7 +526,7 @@ SYSTEM You are a utf16 file.
 	assert.NoError(t, err)
 
 	actual, err := ParseFile(buf)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	expected := []Command{
 		{Name: "model", Args: "bob"},
